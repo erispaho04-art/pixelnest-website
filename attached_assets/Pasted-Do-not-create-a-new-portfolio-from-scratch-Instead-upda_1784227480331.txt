@@ -1,0 +1,60 @@
+Do not create a new portfolio from scratch. Instead, update the existing portfolio using all the files, images, logos, website screenshots, posters, menus, branding, social media designs, and every other project I have already uploaded.
+
+Important requirements:
+
+1. Use EVERY project I uploaded. Do not ignore any image or file.
+
+2. Do NOT separate the projects into different categories or pages. Create one beautiful Portfolio Gallery where all my work is displayed together in a modern masonry/grid layout with filtering and search if possible.
+
+3. Every project should have:
+- Large preview image
+- Smooth hover animation
+- Lightbox/full-screen preview when clicked
+- Clean spacing
+- Premium modern design
+
+4. Add my PixelNest logo throughout the website:
+- Navbar
+- Hero section
+- Footer
+- Favicon
+Use the logo I uploaded.
+
+5. Create a secure Admin Dashboard where I can log in with a username and password.
+
+The admin panel must allow me to:
+- Upload new portfolio images
+- Delete projects
+- Edit project titles and descriptions
+- Change the order of projects by drag and drop
+- Upload new categories later if I want
+- Change my phone number
+- Change email
+- Change social media links
+- Change logo
+- Edit the homepage text
+- Edit services
+- Edit about section
+
+6. The portfolio should automatically display any new projects I upload from the admin panel without editing the code.
+
+7. Store all portfolio data in a database so everything remains after restarting the app.
+
+8. Make the admin dashboard accessible only after login.
+
+9. Use a premium modern design with:
+- React
+- TypeScript
+- Tailwind CSS
+- Responsive layout
+- Dark mode
+- Smooth animations
+- SEO optimization
+- Fast loading
+
+10. Make the website look like a high-end creative agency portfolio that will impress clients.
+
+Important:
+Use all the real files I uploaded. Do not replace my work with placeholders or stock images. If any uploaded project is missing from the portfolio, find it and include it automatically.
+
+Finally, create an admin login page and, after everything is finished, show me the admin URL together with the default username and password so I can log in and manage my portfolio.

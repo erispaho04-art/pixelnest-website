@@ -1,0 +1,78 @@
+Ja një prompt profesional që mund t’ia dërgosh Replit:
+
+⸻
+
+Please optimize and prepare my website for production before I publish it with my .al domain.
+
+1. Performance & Smooth Scrolling
+
+* Optimize the entire website for maximum performance.
+* Make the website load much faster.
+* Improve image loading and compress assets where needed.
+* Remove any lag or delays while scrolling.
+* Currently, when I scroll, black sections appear before the content loads. Fix this so every section appears instantly and smoothly.
+* Optimize all animations so they are fluid (60 FPS) without affecting performance.
+* Use lazy loading only where appropriate without causing visible loading delays.
+
+2. Production Optimization
+
+* Minify HTML, CSS and JavaScript.
+* Remove unused code.
+* Optimize fonts and preload important assets.
+* Improve Core Web Vitals (LCP, CLS and INP).
+* Make the website responsive and fast on desktop, tablet and mobile.
+
+3. Security
+
+Prepare the website following modern security best practices:
+
+* Configure HTTPS correctly (ready for SSL when I connect my domain).
+* Add all recommended HTTP Security Headers:
+    * Content Security Policy (CSP)
+    * Strict-Transport-Security (HSTS)
+    * X-Frame-Options
+    * X-Content-Type-Options
+    * Referrer-Policy
+    * Permissions-Policy
+* Protect against XSS, CSRF and clickjacking where applicable.
+* Sanitize and validate all form inputs.
+* Do not expose sensitive information in the frontend.
+* Store passwords securely using a strong hashing algorithm (never plain text).
+* Keep all secrets and API keys in environment variables.
+* Add protection against spam for the contact form if needed.
+
+4. SEO & Metadata
+
+* Add proper meta title and description.
+* Add Open Graph tags for social media sharing.
+* Add Twitter Card metadata.
+* Add favicon and proper metadata.
+* Generate sitemap.xml.
+* Generate robots.txt.
+* Add canonical URLs.
+
+5. Legal Pages
+
+Create professional pages and link them in the footer:
+
+* Privacy Policy
+* Terms & Conditions
+* Cookie Policy
+
+Also add a Cookie Consent banner that allows visitors to accept or reject cookies.
+
+6. Contact Form
+
+* Ensure the contact form is secure.
+* Validate all fields.
+* Prevent spam.
+* Make sure it works correctly in production.
+
+7. Final Review
+
+Before finishing:
+
+* Check the entire website for broken links, console errors and performance issues.
+* Make sure the website is fully production-ready, secure, fast and optimized for publishing with my .al domain.
+
+Do not redesign the website or change the UI. Only improve performance, security, SEO and production readiness while keeping the existing design exactly as it is.

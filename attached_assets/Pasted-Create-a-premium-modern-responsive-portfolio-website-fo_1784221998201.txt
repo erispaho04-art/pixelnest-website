@@ -1,0 +1,139 @@
+Create a premium, modern, responsive portfolio website for my creative agency and personal work using all the files, images, logos, websites, and designs I have already shared with you in this Replit project.
+
+The website should have a luxury, minimal, and professional look with smooth animations and excellent UI/UX.
+
+Brand style:
+- Modern
+- Black & White with elegant accent colors
+- Premium typography
+- Glassmorphism where appropriate
+- Smooth scrolling
+- Micro animations
+- Fully responsive for desktop, tablet, and mobile
+
+Pages/Sections:
+
+1. Hero Section
+- Large headline:
+"Creative Digital Designer & Web Developer"
+- Subtitle:
+"I create modern websites, branding, graphic design, and digital experiences that help businesses grow."
+- CTA buttons:
+• View Projects
+• Contact Me
+
+2. About Me
+Write a professional introduction explaining that I specialize in:
+- Graphic Design
+- Logo Design
+- Brand Identity
+- Restaurant Menus
+- Social Media Design
+- Website Design
+- Landing Pages
+- QR Code Design
+- Business Cards
+- Posters & Flyers
+- UI/UX Design
+
+3. Portfolio
+Automatically use every project I have already shared in this Replit workspace.
+
+Group projects into categories:
+
+• Websites
+• Branding
+• Logos
+• Restaurant Menus
+• Social Media
+• Posters
+• Business Cards
+• Marketing Materials
+
+Each project should include:
+- Large preview image
+- Title
+- Short description
+- Technologies used (if applicable)
+- Hover animation
+- Lightbox/gallery view
+
+If there are website projects, include a "Live Preview" button.
+
+4. Featured Projects
+Display the best projects in large premium cards.
+
+5. Services
+Create beautiful cards for:
+- Website Design
+- Graphic Design
+- Logo Design
+- Brand Identity
+- Social Media Management
+- QR Codes
+- Menu Design
+- Print Design
+
+6. Skills
+Show animated progress bars or icons for:
+Photoshop
+Illustrator
+Figma
+Canva
+HTML
+CSS
+JavaScript
+React
+Next.js
+WordPress
+Replit
+UI/UX Design
+
+7. Experience
+Present my creative experience professionally.
+
+8. Testimonials
+Create a modern testimonial slider with placeholder reviews that I can edit later.
+
+9. Contact
+Include:
+Phone: +355 69 581 6927
+
+Buttons:
+WhatsApp
+Instagram
+Email
+
+10. Footer
+Simple premium footer with social icons.
+
+Extra Features:
+- Dark mode by default
+- Beautiful page transitions
+- Smooth scrolling
+- Scroll animations
+- Animated counters
+- Image lazy loading
+- SEO optimized
+- Fast loading
+- Accessible
+- Responsive
+- Modern loading screen
+- Sticky navigation
+- Active navigation indicator
+- Back to top button
+
+Technical Requirements:
+- React
+- TypeScript
+- Tailwind CSS
+- Clean component structure
+- Reusable components
+- Optimized images
+- Easy to update with new projects
+- Well-organized code
+
+Important:
+Analyze every file already available in this Replit project and automatically populate the portfolio with my existing work. Do not use placeholder projects if real ones already exist.
+
+The final result should look like a premium creative portfolio suitable for impressing clients and helping me get freelance work.

@@ -1,0 +1,62 @@
+Ja një prompt të plotë që mund t’ia dërgosh Replit:
+
+⸻
+
+Please update my portfolio website with the following changes:
+
+1. Logo
+
+Replace the current logo with the new logo I will provide. Use the transparent PNG version (no background) and integrate it professionally throughout the website (navbar, footer, favicon if possible).
+
+2. About Me
+
+Replace the current About Me section with the following:
+
+PixelNest is a creative digital studio specializing in graphic design, branding, web design, and digital solutions for businesses. We help brands establish a strong visual identity through modern, professional, and creative designs. From logos and branding to websites, digital restaurant menus, and social media content, our goal is to deliver high-quality work that helps businesses grow and stand out in the digital world.
+
+3. Services
+
+Please update the Services section by adding the following services:
+
+* Graphic Design
+* Logo & Brand Identity
+* Social Media Design
+* QR Code Design
+* Digital Menus for Restaurants & Bars
+* Website Design & Development
+* Website Maintenance & Support
+
+Use modern icons and keep the design consistent with the rest of the website.
+
+4. Skills
+
+Update the Skills section:
+
+* Remove Figma
+* Remove Canva
+* Add Adobe Creative Cloud
+* Add Artificial Intelligence (AI Tools)
+
+Keep the skill cards with matching icons and animations.
+
+5. Social Media
+
+* Remove the Facebook icon completely.
+* Keep only Instagram.
+* When users click the Instagram icon, it should open this profile:
+
+https://www.instagram.com/pixelnest.al?igsh=MWVuNnZ2OTc0cm9tdA%3D%3D&utm_source=qr
+
+6. Portfolio
+
+I will send more project images later.
+
+For now:
+
+* Prepare the Portfolio section so I can easily add new projects in the future.
+* Remove the placeholder project names/titles currently displayed.
+* Display only the project images with a clean, professional gallery layout.
+* Make the portfolio responsive with hover effects and a lightbox/modal when clicking an image.
+* Keep the code organized so adding new projects later is simple.
+
+Please make all these changes while maintaining the same modern, premium, minimal, and responsive design style of the website. The website should continue to load quickly and work perfectly on desktop, tablet, and mobile devices.

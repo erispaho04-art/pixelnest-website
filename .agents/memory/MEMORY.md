@@ -1,0 +1,1 @@
+- [Pixel Nest Portfolio Architecture](pixel-nest-portfolio.md) — full-stack portfolio with Express/PostgreSQL API, admin CMS, session auth, and object storage.
