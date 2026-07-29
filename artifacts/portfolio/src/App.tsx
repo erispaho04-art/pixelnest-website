@@ -8,7 +8,7 @@ import AdminDashboard from '@/pages/AdminDashboard';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import TermsAndConditions from '@/pages/TermsAndConditions';
 import CookiePolicy from '@/pages/CookiePolicy';
-import { Route, Switch, Router as WouterRouter } from 'wouter';
+import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
 import { useEffect } from 'react';
 import { LoadingScreen } from '@/components/ui/LoadingScreen';
 import { CookieConsent } from '@/components/ui/CookieConsent';
@@ -29,6 +29,20 @@ function Router() {
   );
 }
 
+function AppInner() {
+  const [location] = useLocation();
+  const isHome = location === '/';
+
+  return (
+    <>
+      {isHome && <LoadingScreen />}
+      <Router />
+      {isHome && <CookieConsent />}
+      <Toaster />
+    </>
+  );
+}
+
 function App() {
   useEffect(() => {
     document.documentElement.classList.add('dark');
@@ -37,12 +51,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <LoadingScreen />
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
-          <Router />
+          <AppInner />
         </WouterRouter>
-        <CookieConsent />
-        <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
   );
