@@ -20,7 +20,9 @@ description: Full-stack portfolio site for Pixel Nest agency — Express/Postgre
 - **All image URLs are root-relative** — `/project-images/file.jpg` used directly in `<img src>`.
 - **Sitemap served from Express** — sets `application/xml; charset=utf-8` explicitly; static server hardcodes `text/xml`.
 - **Purple accent color** — `hsl(263 70% 55%)` throughout CSS variables.
-- **Production session cookie** — `secure: isProduction` so HTTPS-only when deployed.
+- **Production session cookie** — `secure: isProduction` so HTTPS-only when deployed. Requires `app.set('trust proxy', 1)` or Express won't send the secure cookie through Replit's reverse proxy, causing login to return 200 but /api/auth/me to return 401.
+- **Loading screen on every route** — `LoadingScreen` mounted in `App` plays on `/admin` too. Fixed by rendering it only when `location === '/'` (inside `AppInner` with `useLocation`).
+- **`PORT` guard in vite.config.ts** — Skip the guard when `process.argv.includes('build')` or `NODE_ENV === 'production'` so `pnpm run build` works without env vars.
 - **react-query v5 `queryKey` required** — When passing `query` options to Orval-generated hooks, must include `queryKey` explicitly (e.g. `queryKey: ['auth-me']`) even though the hook would override it — v5 `UseQueryOptions` requires it at the type level.
 - **`PORT` guard in vite.config.ts** — Both portfolio and mockup-sandbox throw if PORT is missing. Fix: skip the guard when `process.argv.includes('build')` or `NODE_ENV === 'production'` so `pnpm run build` works without env vars.
 
