@@ -7,18 +7,18 @@ function Counter({ end, duration = 2, suffix = "" }: { end: number, duration?: n
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const stepTime = Math.abs(Math.floor((duration * 1000) / end));
-      
-      const timer = setInterval(() => {
-        start += 1;
-        setCount(start);
-        if (start === end) clearInterval(timer);
-      }, stepTime);
+    if (!isInView) return;
 
-      return () => clearInterval(timer);
-    }
+    let start = 0;
+    const stepTime = Math.abs(Math.floor((duration * 1000) / end));
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start === end) clearInterval(timer);
+    }, stepTime);
+
+    return () => clearInterval(timer);
   }, [end, duration, isInView]);
 
   return (

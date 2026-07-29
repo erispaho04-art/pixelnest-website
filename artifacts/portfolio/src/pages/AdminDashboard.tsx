@@ -10,7 +10,8 @@ export default function AdminDashboard() {
   const [, setLocation] = useLocation();
   const { data: user, isLoading, isError } = useGetAuthMe({
     query: {
-      retry: false
+      retry: false,
+      queryKey: ['auth-me']
     }
   });
   

@@ -1,37 +1,40 @@
 ---
 name: Pixel Nest Portfolio Architecture
-description: Key decisions and constraints for the Pixel Nest full-stack portfolio project.
+description: Full-stack portfolio site for Pixel Nest agency — Express/PostgreSQL API, React/Vite frontend, admin CMS, session auth, object storage.
 ---
 
-## Auth
-- Admin auth uses bcryptjs (pure JS — NOT bcrypt which needs native build approval) + express-session.
-- SESSION_SECRET secret is already provisioned; session cookie is sameSite=lax, httpOnly, 7 days.
-- Type augmentation file (types/express-session.d.ts) must NOT be imported in app.ts — TypeScript picks it up automatically; esbuild errors on importing a .d.ts file.
+## Stack
 
-**Why:** bcrypt requires pnpm approve-builds (interactive prompt, blocks CI); bcryptjs is identical API, pure JS.
+- **Frontend:** React + Vite + Tailwind + TypeScript → `artifacts/portfolio` (preview path `/`)
+- **Backend:** Express + pino + esbuild → `artifacts/api-server` (port 8080, path `/api`)
+- **Database:** Replit PostgreSQL via Drizzle ORM → `@workspace/db`
+- **Auth:** bcryptjs + express-session (7-day), `SESSION_SECRET` env var
+- **Image storage:** Static files in `public/project-images/`, root-relative URLs
+- **API contract:** OpenAPI → Orval → `@workspace/api-client-react` hooks
 
-## API client
-- custom-fetch.ts uses `credentials: "include"` so session cookies flow on every API call.
-- Never use Bearer tokens for web auth — sessions are cookie-based.
+## Key Decisions
 
-## Image URLs
-- Static project images copied to `artifacts/portfolio/public/project-images/` → served at `/project-images/filename`.
-- DB stores root-relative paths like `/project-images/filename.jpg` — use directly in img src.
-- Object storage uploads return `objectPath` (also root-relative) — store as-is as imageUrl.
+- **bcryptjs not bcrypt** — bcrypt requires interactive build approval; bcryptjs is pure JS with identical API.
+- **No `format: uri` in OpenAPI spec** — Orval generates `z.url()` which doesn't exist in Zod v3.
+- **Type-only `.d.ts` files must NOT be imported in `app.ts`** — esbuild errors on runtime import of a declaration file.
+- **All image URLs are root-relative** — `/project-images/file.jpg` used directly in `<img src>`.
+- **Sitemap served from Express** — sets `application/xml; charset=utf-8` explicitly; static server hardcodes `text/xml`.
+- **Purple accent color** — `hsl(263 70% 55%)` throughout CSS variables.
+- **Production session cookie** — `secure: isProduction` so HTTPS-only when deployed.
+- **react-query v5 `queryKey` required** — When passing `query` options to Orval-generated hooks, must include `queryKey` explicitly (e.g. `queryKey: ['auth-me']`) even though the hook would override it — v5 `UseQueryOptions` requires it at the type level.
+- **`PORT` guard in vite.config.ts** — Both portfolio and mockup-sandbox throw if PORT is missing. Fix: skip the guard when `process.argv.includes('build')` or `NODE_ENV === 'production'` so `pnpm run build` works without env vars.
 
-## DB Schema
-- Tables: projects, settings, admins. Settings is a key-value store (key TEXT PK, value TEXT).
-- Default admin: username=admin, password=PixelNest2024! (bcryptjs hash in admins table).
+## Database
 
-## Object Storage
-- Provisioned via setupObjectStorage() — bucket ID in DEFAULT_OBJECT_STORAGE_BUCKET_ID secret.
-- Storage route template copied from .local/skills/object-storage/templates/api-server/src/routes/storage.ts.
+Three tables (pushed via `drizzle-kit push`):
+- `projects` — id, title, description, category, image_url, display_order, created_at
+- `settings` — key (PK), value
+- `admins` — id, username, password_hash
 
-## Codegen
-- OpenAPI spec must NOT use `format: uri` on string fields — Orval generates z.url() which doesn't exist in zod v3.
-- Run codegen: `pnpm --filter @workspace/api-spec run codegen`
+**Seeded:** Admin `admin`/`PixelNest2024!`; 22 client project images (Smart Capital Real Estate × 11, Niko's Grill × 11).
 
-## Real project images (22 total)
-- Smart Capital Real Estate: 11 images (social media, print, marketing)
-- Niko's Grill: 11 images (branding, business cards, social media)
-- All in attached_assets/, also copied to artifacts/portfolio/public/project-images/
+## Production
+
+- Live at `https://pixelnest.al`
+- API healthcheck: `https://pixelnest.al/api/healthz`
+- No GitHub remote configured as of last session.
