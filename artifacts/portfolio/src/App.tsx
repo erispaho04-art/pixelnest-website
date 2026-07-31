@@ -1,16 +1,23 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import NotFound from '@/pages/not-found';
-import Home from '@/pages/Home';
-import AdminLogin from '@/pages/AdminLogin';
-import AdminDashboard from '@/pages/AdminDashboard';
-import ProjectDetail from '@/pages/ProjectDetail';
-import PrivacyPolicy from '@/pages/PrivacyPolicy';
-import TermsAndConditions from '@/pages/TermsAndConditions';
-import CookiePolicy from '@/pages/CookiePolicy';
 import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
+
+// ── Critical path — always bundled with the main chunk ────────────────────────
+import Home from '@/pages/Home';
+
+// ── Lazy chunks — loaded only when the route is first visited ─────────────────
+// This keeps the visitor-facing bundle lean; admin code (DnD, rich forms,
+// file upload, SettingsManager, ProjectsManager, ClientsManager) is only
+// downloaded when someone actually navigates to /admin or /admin/dashboard.
+const AdminLogin        = lazy(() => import('@/pages/AdminLogin'));
+const AdminDashboard    = lazy(() => import('@/pages/AdminDashboard'));
+const ProjectDetail     = lazy(() => import('@/pages/ProjectDetail'));
+const PrivacyPolicy     = lazy(() => import('@/pages/PrivacyPolicy'));
+const TermsAndConditions = lazy(() => import('@/pages/TermsAndConditions'));
+const CookiePolicy      = lazy(() => import('@/pages/CookiePolicy'));
+const NotFound          = lazy(() => import('@/pages/not-found'));
 import { LoadingScreen } from '@/components/ui/LoadingScreen';
 import { CookieConsent } from '@/components/ui/CookieConsent';
 import { PremiumBackground } from '@/components/ui/PremiumBackground';
