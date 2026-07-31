@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useGetSettings } from '@workspace/api-client-react';
-import { MacBook3D } from '@/components/ui/MacBook3D';
+import { ArrowDown } from 'lucide-react';
 
 export function Hero() {
   const { data: settings } = useGetSettings();
@@ -27,103 +27,125 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden bg-noise bg-grid-white pt-20"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-noise bg-grid-white pt-20"
       id="home"
     >
-      {/* Cinematic gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background pointer-events-none" />
+      {/* Cinematic gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/65 to-background pointer-events-none" />
 
-      {/* Left glow */}
-      <div className="absolute top-1/3 -left-20 w-[500px] h-[500px] bg-primary/6 rounded-full blur-[160px] pointer-events-none" />
+      {/* Left ambient glow */}
+      <div className="absolute top-1/3 -left-24 w-[560px] h-[560px] bg-primary/7 rounded-full blur-[180px] pointer-events-none" />
+      {/* Right ambient glow */}
+      <div className="absolute top-1/2 -right-24 w-[420px] h-[420px] bg-primary/4 rounded-full blur-[150px] pointer-events-none" />
+      {/* Centre bloom */}
+      <div className="absolute top-[38%] left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-primary/3 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container relative z-10 mx-auto px-6 py-12">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-6 min-h-[80vh]">
+      <div className="container relative z-10 mx-auto px-6 py-16 flex flex-col items-center text-center">
 
-          {/* ── Text column ── */}
-          <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 2.2 }}
-              className="mb-6"
-            >
-              <span className="px-4 py-1.5 rounded-full border border-border bg-card/30 backdrop-blur-sm text-xs font-medium text-muted-foreground uppercase tracking-widest">
-                Based in Albania · Serving Worldwide
-              </span>
-            </motion.div>
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 2.2 }}
+          className="mb-8"
+        >
+          <span className="px-4 py-1.5 rounded-full border border-border bg-card/30 backdrop-blur-sm text-xs font-medium text-muted-foreground uppercase tracking-widest">
+            Based in Albania · Serving Worldwide
+          </span>
+        </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 2.4, ease: 'easeOut' }}
-              className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground tracking-tighter leading-[1.1]"
-            >
-              {highlightWord(title)}
-            </motion.h1>
+        {/* Main headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2.4, ease: 'easeOut' }}
+          className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-foreground tracking-tighter leading-[1.04] max-w-4xl"
+        >
+          {highlightWord(title)}
+        </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.6 }}
-              className="mt-6 text-lg text-muted-foreground font-light leading-relaxed"
-            >
-              {subtitle}
-            </motion.p>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.6 }}
+          className="mt-8 text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl"
+        >
+          {subtitle}
+        </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.8 }}
-              className="mt-10 flex flex-col sm:flex-row items-center lg:items-start gap-4 w-full sm:w-auto"
-            >
-              <a
-                href="#portfolio"
-                className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-medium rounded text-center hover:bg-primary/90 hover:scale-105 transition-all shadow-[0_0_22px_rgba(119,51,208,0.32)] hover:shadow-[0_0_34px_rgba(119,51,208,0.55)]"
-              >
-                View Projects
-              </a>
-              <a
-                href="#contact"
-                className="w-full sm:w-auto px-8 py-4 bg-transparent border border-border text-foreground font-medium rounded text-center hover:border-foreground hover:scale-105 transition-all"
-              >
-                Contact Us
-              </a>
-            </motion.div>
+        {/* CTA buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.8 }}
+          className="mt-12 flex flex-col sm:flex-row items-center gap-4"
+        >
+          <a
+            href="#portfolio"
+            className="px-9 py-4 bg-primary text-primary-foreground font-medium rounded text-center hover:bg-primary/90 hover:scale-105 transition-all shadow-[0_0_24px_rgba(119,51,208,0.34)] hover:shadow-[0_0_38px_rgba(119,51,208,0.58)]"
+          >
+            View Projects
+          </a>
+          <a
+            href="#contact"
+            className="px-9 py-4 bg-transparent border border-border text-foreground font-medium rounded text-center hover:border-foreground hover:scale-105 transition-all"
+          >
+            Contact Us
+          </a>
+        </motion.div>
 
-            {/* Quick stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 3.0 }}
-              className="mt-12 flex items-center gap-8 lg:gap-10"
-            >
-              {[
-                { value: '50+', label: 'Projects' },
-                { value: '20+', label: 'Clients' },
-                { value: '100%', label: 'Satisfaction' },
-              ].map(stat => (
-                <div key={stat.label} className="text-center lg:text-left">
-                  <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                  <div className="text-[11px] text-muted-foreground uppercase tracking-widest mt-0.5">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
+        {/* Divider + mini stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 3.0 }}
+          className="mt-20 flex flex-col items-center gap-8"
+        >
+          {/* Decorative rule */}
+          <div className="flex items-center gap-5">
+            <div className="h-px w-20 bg-gradient-to-r from-transparent to-border" />
+            <span className="text-[10px] text-muted-foreground/60 uppercase tracking-[0.22em]">
+              Trusted Results
+            </span>
+            <div className="h-px w-20 bg-gradient-to-l from-transparent to-border" />
           </div>
 
-          {/* ── MacBook column ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 60, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 1.3, delay: 2.6, ease: 'easeOut' }}
-            className="flex-1 flex items-center justify-center w-full"
-          >
-            <MacBook3D />
-          </motion.div>
-
-        </div>
+          {/* Stats row */}
+          <div className="flex items-center gap-12 md:gap-20">
+            {[
+              { value: '50+', label: 'Projects' },
+              { value: '20+', label: 'Clients' },
+              { value: '100%', label: 'Satisfaction' },
+            ].map((stat, i) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-3xl md:text-4xl font-serif font-bold text-foreground">
+                  {stat.value}
+                </div>
+                <div className="text-[10px] text-muted-foreground uppercase tracking-[0.18em] mt-1.5">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 3.6 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.9, repeat: Infinity, ease: 'easeInOut' }}
+          className="flex flex-col items-center gap-2"
+        >
+          <ArrowDown className="w-4 h-4 text-muted-foreground/40" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

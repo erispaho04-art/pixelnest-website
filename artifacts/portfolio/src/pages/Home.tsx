@@ -2,15 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
+import { Stats } from '@/components/sections/Stats';
 import { About } from '@/components/sections/About';
 import { Services } from '@/components/sections/Services';
-import { FeaturedProjects } from '@/components/sections/FeaturedProjects';
 import { Portfolio } from '@/components/sections/Portfolio';
-import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
-import { Stats } from '@/components/sections/Stats';
-import { ClientLogos } from '@/components/sections/ClientLogos';
 import { Testimonials } from '@/components/sections/Testimonials';
-import { ContactCTA } from '@/components/sections/ContactCTA';
 import { Contact } from '@/components/sections/Contact';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { ChevronUp } from 'lucide-react';
@@ -43,15 +39,11 @@ export default function Home() {
 
       <main>
         <Hero />
+        <Stats />
         <About />
         <Services />
-        <FeaturedProjects />
         <Portfolio />
-        <WhyChooseUs />
-        <Stats />
-        <ClientLogos />
         <Testimonials />
-        <ContactCTA />
         <Contact />
       </main>
 
