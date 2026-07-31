@@ -41,7 +41,7 @@ export default function AdminDashboard() {
     });
   };
 
-  const navItems: { id: Tab; label: string; icon: React.ElementType }[] = [
+  const navItems: { id: Tab; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'projects', label: 'Projects', icon: LayoutGrid },
     { id: 'clients', label: 'Clients', icon: Users },
     { id: 'settings', label: 'Settings', icon: Settings },

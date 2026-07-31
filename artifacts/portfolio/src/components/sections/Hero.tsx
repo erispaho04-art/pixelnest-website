@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useGetSettings } from '@workspace/api-client-react';
-import { MacBookMockup } from '@/components/ui/MacBookMockup';
+import { MacBook3D } from '@/components/ui/MacBook3D';
 
 export function Hero() {
   const { data: settings } = useGetSettings();
@@ -119,7 +119,7 @@ export function Hero() {
             transition={{ duration: 1.3, delay: 2.6, ease: 'easeOut' }}
             className="flex-1 flex items-center justify-center w-full"
           >
-            <MacBookMockup />
+            <MacBook3D />
           </motion.div>
 
         </div>
