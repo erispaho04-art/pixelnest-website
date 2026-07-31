@@ -8,6 +8,7 @@ import { Services } from '@/components/sections/Services';
 import { Portfolio } from '@/components/sections/Portfolio';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { Contact } from '@/components/sections/Contact';
+import { ClientLogos } from '@/components/sections/ClientLogos';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { ChevronUp } from 'lucide-react';
 
@@ -45,6 +46,7 @@ export default function Home() {
         <Portfolio />
         <Testimonials />
         <Contact />
+        <ClientLogos />
       </main>
 
       <Footer />
