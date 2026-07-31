@@ -61,6 +61,10 @@ export function Portfolio() {
             Array.from({ length: 6 }).map((_, i) => (
               <div key={i} className="aspect-[4/3] bg-card rounded-lg animate-pulse" />
             ))
+          ) : filteredProjects.length === 0 ? (
+            <div className="col-span-full py-24 text-center text-muted-foreground">
+              <p className="text-lg">No projects yet — check back soon.</p>
+            </div>
           ) : (
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (

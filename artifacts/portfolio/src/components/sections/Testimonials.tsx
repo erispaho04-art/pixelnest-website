@@ -4,20 +4,20 @@ import { Star } from 'lucide-react';
 
 const TESTIMONIALS = [
   {
-    name: "Arjan K.",
-    company: "Smart Capital Real Estate",
+    name: "A.K.",
+    company: "Real Estate Agency",
     quote: "Working with Pixel Nest elevated our agency's presence entirely. The branding was precise, luxurious, and perfectly captured the essence of high-end real estate.",
     rating: 5
   },
   {
-    name: "Nikolaos P.",
-    company: "Niko's Grill",
+    name: "N.P.",
+    company: "Restaurant & Grill",
     quote: "From the logo to the menus and packaging, everything was delivered with incredible attention to detail. Our customers constantly compliment the new look.",
     rating: 5
   },
   {
-    name: "Ermal D.",
-    company: "Tech Solutions AL",
+    name: "E.D.",
+    company: "Tech Solutions",
     quote: "Fast, professional, and wildly creative. The website redesign doubled our conversion rate in the first month. Highly recommended for any serious business.",
     rating: 5
   }

@@ -129,8 +129,11 @@ export function ProjectsManager() {
         body: file,
         headers: { "Content-Type": file.type },
       });
-      
-      setFormData(prev => ({ ...prev, imageUrl: objectPath }));
+
+      // objectPath is like /objects/uploads/{uuid}
+      // Map it to the API serving URL: /api/storage/objects/uploads/{uuid}
+      const imageUrl = `/api/storage${objectPath}`;
+      setFormData(prev => ({ ...prev, imageUrl }));
     } catch (error) {
       console.error("Upload failed", error);
     } finally {

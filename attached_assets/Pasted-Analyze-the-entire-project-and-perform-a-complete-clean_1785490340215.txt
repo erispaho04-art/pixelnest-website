@@ -1,0 +1,78 @@
+Analyze the entire project and perform a complete cleanup and fix of the website.
+
+Requirements:
+
+1. Fix all bugs, errors, and broken functionality across the entire website.
+
+2. Check that every page works correctly, including navigation, buttons, forms, animations, responsiveness, and loading performance.
+
+3. Fix the Admin Panel completely.
+   - I currently cannot log into the Admin Panel.
+   - Find the cause and fix the authentication/login system.
+   - Ensure the admin dashboard works properly after login.
+
+4. Remove all hardcoded demo content from the website:
+   - Remove all existing business names.
+   - Remove all existing business images/photos.
+   - Remove any sample descriptions, categories, reviews, or placeholder data.
+
+5. The website should start with an empty database (or empty content) so I can add everything manually from the Admin Panel.
+
+6. Make sure the Admin Panel allows me to:
+   - Add businesses.
+   - Edit businesses.
+   - Delete businesses.
+   - Upload images.
+   - Manage categories.
+   - Manage descriptions.
+   - Save everything permanently to the database.
+
+7. Verify that image uploads work correctly and that uploaded images are displayed on the public website.
+
+8. Remove any unused files, duplicate code, or unnecessary components.
+
+9. Check that the database schema matches the Admin Panel functionality and automatically create any missing tables or migrations if needed.
+
+10. Improve security by protecting admin routes and validating all forms.
+
+11. Do not remove or redesign the existing UI unless it is necessary to fix issues. Keep the current design, branding, layout, animations, and user experience.
+
+12. Fix the Cookie Consent banner.
+   - The "Accept" button is currently not clickable or does not work.
+   - Make both "Accept" and "Reject" buttons fully functional.
+   - Save the user's choice using cookies or localStorage.
+   - After accepting or rejecting, the banner should not appear again unless the stored preference is cleared.
+   - Ensure the banner works correctly on both desktop and mobile and does not block other UI elements.
+
+13. Find and fix all JavaScript, TypeScript, API, and console errors.
+   - Remove all console errors and warnings.
+   - Fix any failed API requests.
+   - Ensure there are no broken scripts preventing buttons or components from working.
+
+14. Test every interactive feature on the website.
+   - Verify all buttons, forms, dropdowns, filters, search, pagination, modals, sliders, authentication, image uploads, and navigation.
+   - Fix anything that is unresponsive or broken.
+
+15. Improve performance where possible.
+   - Optimize images and assets.
+   - Remove unused code.
+   - Improve loading speed without changing the design.
+
+16. Perform a complete QA (Quality Assurance) review.
+   - Test the entire website from start to finish.
+   - Identify and fix every bug, UI issue, layout issue, responsiveness issue, accessibility issue, or broken functionality before considering the project complete.
+
+17. At the end, provide a detailed report including:
+   - Every issue found.
+   - Every fix that was applied.
+   - Files that were modified.
+   - Any remaining manual configuration required.
+
+IMPORTANT:
+- Do NOT recreate the project from scratch.
+- Do NOT change the overall design or branding.
+- Preserve the existing structure and functionality.
+- Only fix bugs, improve the codebase, and remove demo content.
+
+Final Goal:
+Deliver a production-ready website with a fully functional Admin Panel, working authentication, working Cookie Consent banner, zero demo businesses or images, no console errors, and all content manageable manually through the Admin Panel.
