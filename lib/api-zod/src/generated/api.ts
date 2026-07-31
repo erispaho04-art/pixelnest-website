@@ -55,7 +55,13 @@ export const GetProjectsResponseItem = zod.object({
   "category": zod.string(),
   "imageUrl": zod.string(),
   "displayOrder": zod.number(),
-  "createdAt": zod.string()
+  "createdAt": zod.string(),
+  "challenge": zod.string().nullish(),
+  "solution": zod.string().nullish(),
+  "results": zod.string().nullish(),
+  "technologies": zod.array(zod.string()).nullish(),
+  "websiteUrl": zod.string().nullish(),
+  "gallery": zod.array(zod.string()).nullish()
 })
 export const GetProjectsResponse = zod.array(GetProjectsResponseItem)
 
@@ -68,7 +74,13 @@ export const CreateProjectBody = zod.object({
   "description": zod.string().optional(),
   "category": zod.string(),
   "imageUrl": zod.string(),
-  "displayOrder": zod.number().optional()
+  "displayOrder": zod.number().optional(),
+  "challenge": zod.string().optional(),
+  "solution": zod.string().optional(),
+  "results": zod.string().optional(),
+  "technologies": zod.array(zod.string()).optional(),
+  "websiteUrl": zod.string().optional(),
+  "gallery": zod.array(zod.string()).optional()
 })
 
 export const CreateProjectResponse = zod.object({
@@ -78,7 +90,13 @@ export const CreateProjectResponse = zod.object({
   "category": zod.string(),
   "imageUrl": zod.string(),
   "displayOrder": zod.number(),
-  "createdAt": zod.string()
+  "createdAt": zod.string(),
+  "challenge": zod.string().nullish(),
+  "solution": zod.string().nullish(),
+  "results": zod.string().nullish(),
+  "technologies": zod.array(zod.string()).nullish(),
+  "websiteUrl": zod.string().nullish(),
+  "gallery": zod.array(zod.string()).nullish()
 })
 
 
@@ -96,7 +114,13 @@ export const ReorderProjectsResponseItem = zod.object({
   "category": zod.string(),
   "imageUrl": zod.string(),
   "displayOrder": zod.number(),
-  "createdAt": zod.string()
+  "createdAt": zod.string(),
+  "challenge": zod.string().nullish(),
+  "solution": zod.string().nullish(),
+  "results": zod.string().nullish(),
+  "technologies": zod.array(zod.string()).nullish(),
+  "websiteUrl": zod.string().nullish(),
+  "gallery": zod.array(zod.string()).nullish()
 })
 export const ReorderProjectsResponse = zod.array(ReorderProjectsResponseItem)
 
@@ -113,7 +137,13 @@ export const UpdateProjectBody = zod.object({
   "description": zod.string().nullish(),
   "category": zod.string().optional(),
   "imageUrl": zod.string().optional(),
-  "displayOrder": zod.number().optional()
+  "displayOrder": zod.number().optional(),
+  "challenge": zod.string().nullish(),
+  "solution": zod.string().nullish(),
+  "results": zod.string().nullish(),
+  "technologies": zod.array(zod.string()).nullish(),
+  "websiteUrl": zod.string().nullish(),
+  "gallery": zod.array(zod.string()).nullish()
 })
 
 export const UpdateProjectResponse = zod.object({
@@ -123,7 +153,13 @@ export const UpdateProjectResponse = zod.object({
   "category": zod.string(),
   "imageUrl": zod.string(),
   "displayOrder": zod.number(),
-  "createdAt": zod.string()
+  "createdAt": zod.string(),
+  "challenge": zod.string().nullish(),
+  "solution": zod.string().nullish(),
+  "results": zod.string().nullish(),
+  "technologies": zod.array(zod.string()).nullish(),
+  "websiteUrl": zod.string().nullish(),
+  "gallery": zod.array(zod.string()).nullish()
 })
 
 
@@ -135,6 +171,98 @@ export const DeleteProjectParams = zod.object({
 })
 
 export const DeleteProjectResponse = zod.void()
+
+
+/**
+ * @summary List all clients
+ */
+export const GetClientsResponseItem = zod.object({
+  "id": zod.number(),
+  "name": zod.string(),
+  "logoUrl": zod.string(),
+  "website": zod.string().nullish(),
+  "displayOrder": zod.number(),
+  "featured": zod.boolean(),
+  "createdAt": zod.string()
+})
+export const GetClientsResponse = zod.array(GetClientsResponseItem)
+
+
+/**
+ * @summary Create client (admin)
+ */
+export const CreateClientBody = zod.object({
+  "name": zod.string(),
+  "logoUrl": zod.string(),
+  "website": zod.string().optional(),
+  "displayOrder": zod.number().optional(),
+  "featured": zod.boolean().optional()
+})
+
+export const CreateClientResponse = zod.object({
+  "id": zod.number(),
+  "name": zod.string(),
+  "logoUrl": zod.string(),
+  "website": zod.string().nullish(),
+  "displayOrder": zod.number(),
+  "featured": zod.boolean(),
+  "createdAt": zod.string()
+})
+
+
+/**
+ * @summary Reorder clients (admin)
+ */
+export const ReorderClientsBody = zod.object({
+  "ids": zod.array(zod.number())
+})
+
+export const ReorderClientsResponseItem = zod.object({
+  "id": zod.number(),
+  "name": zod.string(),
+  "logoUrl": zod.string(),
+  "website": zod.string().nullish(),
+  "displayOrder": zod.number(),
+  "featured": zod.boolean(),
+  "createdAt": zod.string()
+})
+export const ReorderClientsResponse = zod.array(ReorderClientsResponseItem)
+
+
+/**
+ * @summary Update client (admin)
+ */
+export const UpdateClientParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const UpdateClientBody = zod.object({
+  "name": zod.string().optional(),
+  "logoUrl": zod.string().optional(),
+  "website": zod.string().nullish(),
+  "displayOrder": zod.number().optional(),
+  "featured": zod.boolean().optional()
+})
+
+export const UpdateClientResponse = zod.object({
+  "id": zod.number(),
+  "name": zod.string(),
+  "logoUrl": zod.string(),
+  "website": zod.string().nullish(),
+  "displayOrder": zod.number(),
+  "featured": zod.boolean(),
+  "createdAt": zod.string()
+})
+
+
+/**
+ * @summary Delete client (admin)
+ */
+export const DeleteClientParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const DeleteClientResponse = zod.void()
 
 
 /**

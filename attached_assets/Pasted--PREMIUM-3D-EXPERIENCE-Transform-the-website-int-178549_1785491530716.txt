@@ -1,0 +1,340 @@
+=========================
+PREMIUM 3D EXPERIENCE
+=========================
+
+Transform the website into a premium 2026-style experience without changing the existing branding.
+
+HERO SECTION
+
+Add a beautiful floating 3D device mockup.
+
+The mockup should display PixelNest projects inside a modern MacBook Pro or iPhone.
+
+The 3D object should:
+
+- Slowly float up and down.
+- Slightly rotate.
+- React to mouse movement (parallax).
+- Have soft realistic shadows.
+- Have glass reflections.
+- Blend naturally with the background.
+
+The 3D animation must be lightweight and optimized.
+
+=========================
+BACKGROUND
+=========================
+
+Create a premium animated background.
+
+Use:
+
+- soft moving gradients
+- glowing purple lights
+- blurred circles
+- subtle particles
+- depth effects
+
+The background must move slowly and never distract from the content.
+
+=========================
+CURSOR
+=========================
+
+Create a custom cursor.
+
+When hovering buttons:
+
+Cursor grows.
+
+When hovering links:
+
+Cursor changes.
+
+When hovering portfolio cards:
+
+Cursor displays
+
+"View"
+
+with smooth animation.
+
+=========================
+LOADING SCREEN
+=========================
+
+Create a beautiful loading screen.
+
+Display PixelNest logo.
+
+Animated purple progress line.
+
+Fade smoothly into the website.
+
+Load only once.
+
+=========================
+PAGE TRANSITIONS
+=========================
+
+Every page transition should be animated.
+
+Use:
+
+Fade
+
+Scale
+
+Blur
+
+Slide
+
+Duration:
+
+300–500ms
+
+=========================
+SCROLL EXPERIENCE
+=========================
+
+Improve scrolling.
+
+Use:
+
+Parallax sections
+
+Fade animations
+
+Scale animations
+
+Text reveal
+
+Image reveal
+
+Timeline animations
+
+Everything must feel extremely smooth.
+
+=========================
+MICRO INTERACTIONS
+=========================
+
+Improve every interaction.
+
+Buttons:
+
+Glow
+
+Ripple
+
+Scale
+
+Shadow
+
+Cards:
+
+Lift
+
+Glow
+
+Rotate 1°
+
+Icons:
+
+Bounce
+
+Rotate
+
+Glow
+
+Images:
+
+Zoom
+
+Blur transition
+
+Everything should feel alive.
+
+=========================
+PREMIUM HOVER EFFECTS
+=========================
+
+Cards should react to mouse movement.
+
+Implement:
+
+3D Tilt
+
+Mouse Tracking
+
+Gradient Border
+
+Glow
+
+Smooth Shadows
+
+=========================
+REMOVE SKILLS SECTION
+=========================
+
+Remove the Skills percentage section.
+
+Instead create a premium section called
+
+"Why Businesses Choose PixelNest"
+
+Include six animated feature cards:
+
+⚡ Fast Delivery
+
+🎨 Premium Design
+
+🚀 SEO Optimized
+
+📱 Mobile First
+
+🤖 AI Powered Workflow
+
+🛠 Long-Term Support
+
+Each card should have:
+
+Modern icon
+
+Hover animation
+
+Glow
+
+Glass effect
+
+=========================
+CLIENT LOGOS
+=========================
+
+Create a section called
+
+"Trusted by Businesses"
+
+Everything must come from the Admin Panel.
+
+Support:
+
+Company Logo
+
+Company Name
+
+Website
+
+Display Order
+
+Featured
+
+Display logos in grayscale.
+
+On hover they become full color.
+
+=========================
+LATEST PROJECTS
+=========================
+
+Instead of empty portfolio feeling:
+
+Show only projects added from Admin Panel.
+
+Beautiful masonry grid.
+
+Hover animation.
+
+3D tilt.
+
+Image zoom.
+
+Gradient overlay.
+
+Category badge.
+
+View Project button.
+
+=========================
+PROJECT DETAILS
+=========================
+
+Every project should open its own premium page.
+
+Include:
+
+Hero Image
+
+Gallery
+
+Description
+
+Challenge
+
+Solution
+
+Results
+
+Technologies Used
+
+Visit Website button
+
+Next Project
+
+Previous Project
+
+=========================
+CONTACT CTA
+=========================
+
+Before the footer create one final premium section.
+
+Large headline:
+
+"Let's Build Something Extraordinary"
+
+Subtitle:
+
+Ready to elevate your brand?
+
+Two buttons:
+
+Start Your Project
+
+Book a Free Consultation
+
+Animated background.
+
+Glow effects.
+
+=========================
+FINAL POLISH
+=========================
+
+The entire website should feel like an award-winning digital agency.
+
+Inspired by:
+
+Awwwards
+
+Framer
+
+Webflow
+
+Linear
+
+Apple
+
+Stripe
+
+Maintain excellent performance while adding premium interactions.
+
+Every animation should be smooth.
+
+Every transition should feel premium.
+
+Everything should remain fully responsive.
+
+Do NOT overuse animations.
+
+The experience should feel elegant, luxurious, and modern.

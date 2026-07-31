@@ -13,6 +13,8 @@ tags:
     description: Authentication
   - name: projects
     description: Portfolio projects
+  - name: clients
+    description: Client logos
   - name: settings
     description: Site settings
   - name: Storage
@@ -159,6 +161,94 @@ paths:
       operationId: deleteProject
       tags: [projects]
       summary: Delete project (admin)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+  /clients:
+    get:
+      operationId: getClients
+      tags: [clients]
+      summary: List all clients
+      responses:
+        "200":
+          description: Clients list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Client"
+    post:
+      operationId: createClient
+      tags: [clients]
+      summary: Create client (admin)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClientInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+  /clients/reorder:
+    patch:
+      operationId: reorderClients
+      tags: [clients]
+      summary: Reorder clients (admin)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReorderInput"
+      responses:
+        "200":
+          description: Reordered
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Client"
+  /clients/{id}:
+    patch:
+      operationId: updateClient
+      tags: [clients]
+      summary: Update client (admin)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClientUpdate"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+    delete:
+      operationId: deleteClient
+      tags: [clients]
+      summary: Delete client (admin)
       parameters:
         - name: id
           in: path
@@ -325,6 +415,22 @@ components:
           type: integer
         createdAt:
           type: string
+        challenge:
+          type: ["string", "null"]
+        solution:
+          type: ["string", "null"]
+        results:
+          type: ["string", "null"]
+        technologies:
+          type: ["array", "null"]
+          items:
+            type: string
+        websiteUrl:
+          type: ["string", "null"]
+        gallery:
+          type: ["array", "null"]
+          items:
+            type: string
     ProjectInput:
       type: object
       required: [title, category, imageUrl]
@@ -339,6 +445,22 @@ components:
           type: string
         displayOrder:
           type: integer
+        challenge:
+          type: string
+        solution:
+          type: string
+        results:
+          type: string
+        technologies:
+          type: array
+          items:
+            type: string
+        websiteUrl:
+          type: string
+        gallery:
+          type: array
+          items:
+            type: string
     ProjectUpdate:
       type: object
       properties:
@@ -352,6 +474,67 @@ components:
           type: string
         displayOrder:
           type: integer
+        challenge:
+          type: ["string", "null"]
+        solution:
+          type: ["string", "null"]
+        results:
+          type: ["string", "null"]
+        technologies:
+          type: ["array", "null"]
+          items:
+            type: string
+        websiteUrl:
+          type: ["string", "null"]
+        gallery:
+          type: ["array", "null"]
+          items:
+            type: string
+    Client:
+      type: object
+      required: [id, name, logoUrl, displayOrder, featured, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logoUrl:
+          type: string
+        website:
+          type: ["string", "null"]
+        displayOrder:
+          type: integer
+        featured:
+          type: boolean
+        createdAt:
+          type: string
+    ClientInput:
+      type: object
+      required: [name, logoUrl]
+      properties:
+        name:
+          type: string
+        logoUrl:
+          type: string
+        website:
+          type: string
+        displayOrder:
+          type: integer
+        featured:
+          type: boolean
+    ClientUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        logoUrl:
+          type: string
+        website:
+          type: ["string", "null"]
+        displayOrder:
+          type: integer
+        featured:
+          type: boolean
     ReorderInput:
       type: object
       required: [ids]

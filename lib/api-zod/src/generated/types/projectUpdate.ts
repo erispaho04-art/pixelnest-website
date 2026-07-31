@@ -13,4 +13,16 @@ export interface ProjectUpdate {
   category?: string;
   imageUrl?: string;
   displayOrder?: number;
+  /** @nullable */
+  challenge?: string | null;
+  /** @nullable */
+  solution?: string | null;
+  /** @nullable */
+  results?: string | null;
+  /** @nullable */
+  technologies?: string[] | null;
+  /** @nullable */
+  websiteUrl?: string | null;
+  /** @nullable */
+  gallery?: string[] | null;
 }

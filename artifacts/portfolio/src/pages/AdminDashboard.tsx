@@ -2,26 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
 import { useGetAuthMe, useAuthLogout } from '@workspace/api-client-react';
 import { PixelNestLogo } from '@/components/ui/PixelNestLogo';
-import { LayoutGrid, Settings, LogOut, Loader2 } from 'lucide-react';
+import { LayoutGrid, Settings, LogOut, Loader2, Users } from 'lucide-react';
 import { ProjectsManager } from '@/components/admin/ProjectsManager';
 import { SettingsManager } from '@/components/admin/SettingsManager';
+import { ClientsManager } from '@/components/admin/ClientsManager';
+
+type Tab = 'projects' | 'clients' | 'settings';
 
 export default function AdminDashboard() {
   const [, setLocation] = useLocation();
   const { data: user, isLoading, isError } = useGetAuthMe({
     query: {
       retry: false,
-      queryKey: ['auth-me']
-    }
+      queryKey: ['auth-me'],
+    },
   });
-  
+
   const logout = useAuthLogout();
-  const [activeTab, setActiveTab] = useState<'projects' | 'settings'>('projects');
+  const [activeTab, setActiveTab] = useState<Tab>('projects');
 
   useEffect(() => {
-    if (isError) {
-      setLocation('/admin');
-    }
+    if (isError) setLocation('/admin');
   }, [isError, setLocation]);
 
   if (isLoading) {
@@ -36,9 +37,15 @@ export default function AdminDashboard() {
 
   const handleLogout = () => {
     logout.mutate(undefined, {
-      onSuccess: () => setLocation('/admin')
+      onSuccess: () => setLocation('/admin'),
     });
   };
+
+  const navItems: { id: Tab; label: string; icon: React.ElementType }[] = [
+    { id: 'projects', label: 'Projects', icon: LayoutGrid },
+    { id: 'clients', label: 'Clients', icon: Users },
+    { id: 'settings', label: 'Settings', icon: Settings },
+  ];
 
   return (
     <div className="min-h-screen bg-background flex">
@@ -47,31 +54,22 @@ export default function AdminDashboard() {
         <div className="p-6 border-b border-border">
           <PixelNestLogo size="sm" />
         </div>
-        
+
         <div className="flex-1 py-6 flex flex-col gap-2 px-4">
-          <button
-            onClick={() => setActiveTab('projects')}
-            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-              activeTab === 'projects' 
-                ? 'bg-primary/10 text-primary' 
-                : 'text-muted-foreground hover:bg-border/50 hover:text-foreground'
-            }`}
-          >
-            <LayoutGrid className="w-5 h-5" />
-            Projects
-          </button>
-          
-          <button
-            onClick={() => setActiveTab('settings')}
-            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-              activeTab === 'settings' 
-                ? 'bg-primary/10 text-primary' 
-                : 'text-muted-foreground hover:bg-border/50 hover:text-foreground'
-            }`}
-          >
-            <Settings className="w-5 h-5" />
-            Settings
-          </button>
+          {navItems.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => setActiveTab(id)}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                activeTab === id
+                  ? 'bg-primary/10 text-primary'
+                  : 'text-muted-foreground hover:bg-border/50 hover:text-foreground'
+              }`}
+            >
+              <Icon className="w-5 h-5" />
+              {label}
+            </button>
+          ))}
         </div>
 
         <div className="p-4 border-t border-border">
@@ -89,6 +87,7 @@ export default function AdminDashboard() {
       <main className="flex-1 pl-64">
         <div className="p-10 max-w-6xl mx-auto">
           {activeTab === 'projects' && <ProjectsManager />}
+          {activeTab === 'clients' && <ClientsManager />}
           {activeTab === 'settings' && <SettingsManager />}
         </div>
       </main>

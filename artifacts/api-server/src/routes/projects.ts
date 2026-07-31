@@ -5,6 +5,15 @@ import { requireAdmin } from "./auth";
 
 const router = Router();
 
+function parseJsonField(val: string | null | undefined): string[] | null {
+  if (!val) return null;
+  try {
+    return JSON.parse(val);
+  } catch {
+    return null;
+  }
+}
+
 function toProjectResponse(p: typeof projectsTable.$inferSelect) {
   return {
     id: p.id,
@@ -14,6 +23,12 @@ function toProjectResponse(p: typeof projectsTable.$inferSelect) {
     imageUrl: p.imageUrl,
     displayOrder: p.displayOrder,
     createdAt: p.createdAt.toISOString(),
+    challenge: p.challenge ?? null,
+    solution: p.solution ?? null,
+    results: p.results ?? null,
+    technologies: parseJsonField(p.technologies),
+    websiteUrl: p.websiteUrl ?? null,
+    gallery: parseJsonField(p.gallery),
   };
 }
 
@@ -26,12 +41,30 @@ router.get("/projects", async (_req: Request, res: Response) => {
 });
 
 router.post("/projects", requireAdmin, async (req: Request, res: Response) => {
-  const { title, description, category, imageUrl, displayOrder } = req.body as {
+  const {
+    title,
+    description,
+    category,
+    imageUrl,
+    displayOrder,
+    challenge,
+    solution,
+    results,
+    technologies,
+    websiteUrl,
+    gallery,
+  } = req.body as {
     title?: string;
     description?: string;
     category?: string;
     imageUrl?: string;
     displayOrder?: number;
+    challenge?: string;
+    solution?: string;
+    results?: string;
+    technologies?: string[];
+    websiteUrl?: string;
+    gallery?: string[];
   };
 
   if (!title || !category || !imageUrl) {
@@ -52,6 +85,12 @@ router.post("/projects", requireAdmin, async (req: Request, res: Response) => {
       category,
       imageUrl,
       displayOrder: displayOrder ?? nextOrder,
+      challenge: challenge ?? null,
+      solution: solution ?? null,
+      results: results ?? null,
+      technologies: technologies ? JSON.stringify(technologies) : null,
+      websiteUrl: websiteUrl ?? null,
+      gallery: gallery ? JSON.stringify(gallery) : null,
     })
     .returning();
 
@@ -65,7 +104,6 @@ router.patch("/projects/reorder", requireAdmin, async (req: Request, res: Respon
     return;
   }
 
-  // Update displayOrder for each id based on position in array
   await Promise.all(
     ids.map((id, index) =>
       db
@@ -89,12 +127,30 @@ router.patch("/projects/:id", requireAdmin, async (req: Request, res: Response) 
     return;
   }
 
-  const { title, description, category, imageUrl, displayOrder } = req.body as {
+  const {
+    title,
+    description,
+    category,
+    imageUrl,
+    displayOrder,
+    challenge,
+    solution,
+    results,
+    technologies,
+    websiteUrl,
+    gallery,
+  } = req.body as {
     title?: string;
     description?: string | null;
     category?: string;
     imageUrl?: string;
     displayOrder?: number;
+    challenge?: string | null;
+    solution?: string | null;
+    results?: string | null;
+    technologies?: string[] | null;
+    websiteUrl?: string | null;
+    gallery?: string[] | null;
   };
 
   const updates: Partial<typeof projectsTable.$inferInsert> = {};
@@ -103,6 +159,14 @@ router.patch("/projects/:id", requireAdmin, async (req: Request, res: Response) 
   if (category !== undefined) updates.category = category;
   if (imageUrl !== undefined) updates.imageUrl = imageUrl;
   if (displayOrder !== undefined) updates.displayOrder = displayOrder;
+  if (challenge !== undefined) updates.challenge = challenge;
+  if (solution !== undefined) updates.solution = solution;
+  if (results !== undefined) updates.results = results;
+  if (technologies !== undefined)
+    updates.technologies = technologies ? JSON.stringify(technologies) : null;
+  if (websiteUrl !== undefined) updates.websiteUrl = websiteUrl;
+  if (gallery !== undefined)
+    updates.gallery = gallery ? JSON.stringify(gallery) : null;
 
   const [updated] = await db
     .update(projectsTable)

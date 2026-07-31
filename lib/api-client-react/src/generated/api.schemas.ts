@@ -32,6 +32,18 @@ export interface Project {
   imageUrl: string;
   displayOrder: number;
   createdAt: string;
+  /** @nullable */
+  challenge?: string | null;
+  /** @nullable */
+  solution?: string | null;
+  /** @nullable */
+  results?: string | null;
+  /** @nullable */
+  technologies?: string[] | null;
+  /** @nullable */
+  websiteUrl?: string | null;
+  /** @nullable */
+  gallery?: string[] | null;
 }
 
 export interface ProjectInput {
@@ -40,6 +52,12 @@ export interface ProjectInput {
   category: string;
   imageUrl: string;
   displayOrder?: number;
+  challenge?: string;
+  solution?: string;
+  results?: string;
+  technologies?: string[];
+  websiteUrl?: string;
+  gallery?: string[];
 }
 
 export interface ProjectUpdate {
@@ -49,6 +67,46 @@ export interface ProjectUpdate {
   category?: string;
   imageUrl?: string;
   displayOrder?: number;
+  /** @nullable */
+  challenge?: string | null;
+  /** @nullable */
+  solution?: string | null;
+  /** @nullable */
+  results?: string | null;
+  /** @nullable */
+  technologies?: string[] | null;
+  /** @nullable */
+  websiteUrl?: string | null;
+  /** @nullable */
+  gallery?: string[] | null;
+}
+
+export interface Client {
+  id: number;
+  name: string;
+  logoUrl: string;
+  /** @nullable */
+  website?: string | null;
+  displayOrder: number;
+  featured: boolean;
+  createdAt: string;
+}
+
+export interface ClientInput {
+  name: string;
+  logoUrl: string;
+  website?: string;
+  displayOrder?: number;
+  featured?: boolean;
+}
+
+export interface ClientUpdate {
+  name?: string;
+  logoUrl?: string;
+  /** @nullable */
+  website?: string | null;
+  displayOrder?: number;
+  featured?: boolean;
 }
 
 export interface ReorderInput {

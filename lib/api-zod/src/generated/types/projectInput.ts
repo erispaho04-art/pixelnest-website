@@ -12,4 +12,10 @@ export interface ProjectInput {
   category: string;
   imageUrl: string;
   displayOrder?: number;
+  challenge?: string;
+  solution?: string;
+  results?: string;
+  technologies?: string[];
+  websiteUrl?: string;
+  gallery?: string[];
 }

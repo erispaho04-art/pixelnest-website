@@ -15,4 +15,16 @@ export interface Project {
   imageUrl: string;
   displayOrder: number;
   createdAt: string;
+  /** @nullable */
+  challenge?: string | null;
+  /** @nullable */
+  solution?: string | null;
+  /** @nullable */
+  results?: string | null;
+  /** @nullable */
+  technologies?: string[] | null;
+  /** @nullable */
+  websiteUrl?: string | null;
+  /** @nullable */
+  gallery?: string[] | null;
 }

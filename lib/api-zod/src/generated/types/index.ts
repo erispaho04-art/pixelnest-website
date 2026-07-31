@@ -7,6 +7,9 @@
  */
 
 export * from './authUser';
+export * from './client';
+export * from './clientInput';
+export * from './clientUpdate';
 export * from './errorEnvelope';
 export * from './healthStatus';
 export * from './loginInput';
